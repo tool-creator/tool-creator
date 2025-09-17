@@ -3,27 +3,22 @@ h1 {
   text-shadow: 0 0 10px white;
   text-align: center;
 }
-
 h2 {
   color: white;
   text-align: center;
 }
-
 h3 {
   color: white;
   text-align: center;
 }
-
 h4 {
   color: white;
   text-align: center;
 }
-
 h5 {
   color: white;
   text-align: center;
 }
-
 h6 {
   color: white;
   text-align: center;
@@ -34,4 +29,34 @@ body {
   justify-content: center;
   margin: 0;
   min-height: 100vh;
+  flex-direction: column;
+}
+.main-text-area {
+  width: 70%;
+  font-size: 15px;
+  line-height: 1.5em;
+  color: white;
+  border: 2px solid;
+  border-radius: 8px;
+  border-color: lightgray;
+  background-color: gray;
+  resize: none;
+  overflow-y: auto;
+  height: calc(1.5em +4px);
+  max-height: calc(1.5em * 3 + 4px);
+  padding: 4px 8px;
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  margin: 30px auto;
+  font-family: inter, sans-serif
+}
+.main-text-area:focus {
+  border-color: #0165fc;
+  background-color: white;
+  color: black;
+}
+.main-text-area::placeholder {
+  color: #222;
+  opacity: 1;
 }
