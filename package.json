@@ -2,10 +2,10 @@
   "name": "tool-creator",
   "version": "1.0.0",
   "description": "",
-  "main": "public/index.js",
+  "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node public/index.js"
+    "start": "node server/app.js"
   },
   "keywords": [],
   "author": "",
