@@ -13,7 +13,7 @@ app.post('/api/validate-prompt', (req, res) => {
     if (isUnsafe(prompt)) {
       return res.status(400).json({error: 'Prompt contains unsafe content' });
     }
-    res.json({success: true})
+    return res.json({success: true})
 });
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
