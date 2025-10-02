@@ -10,6 +10,6 @@ const unsafePhrases = [
 ]
 
 function isUnsafe(prompt) {
-    unsafePhrases.some((phrase) => prompt.toLowerCase().includes(phrase))
+    return unsafePhrases.some((phrase) => prompt.toLowerCase().includes(phrase))
 }
-module.exports = { isUnsafe };
+module.exports = isUnsafe;

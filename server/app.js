@@ -6,6 +6,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.post('/api/validate-prompt', (req, res) => {
     const prompt = req.body.prompt;
+    console.log('Received prompt for validation:', prompt);
     if (!prompt || typeof prompt !== 'string') {
         return res.status(400).json({error: 'Invalid prompt'});
     }
