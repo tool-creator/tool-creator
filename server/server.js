@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // Store your key in an environment variable
+  apiKey: process.env.MODERATION_API, // Store your key in an environment variable
 });
 
 app.post('/api/validate-prompt', async (req, res) => {
