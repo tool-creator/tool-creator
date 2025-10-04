@@ -1,19 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import OpenAI from "openai";
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-app.use(express.static(path.join(__dirname, '../public')));
 
 const app = express();
 app.use(bodyParser.json());
 
-const openai = new OpenAI({
-  apiKey: process.env.MODERATION_API,
-});
+const openai = new OpenAI({ apiKey: process.env.MODERATION_API });
 
 app.post("/api/validate-prompt", async (req, res) => {
   try {
@@ -26,12 +18,13 @@ app.post("/api/validate-prompt", async (req, res) => {
 
     const result = response.results[0];
 
+    // If flagged in any category, block it
     if (result.flagged) {
-      res.json({ success: false, error: "Inappropriate or unsafe text detected." });
-    } else {
-      res.json({ success: true });
+      return res.json({ success: false, error: "Inappropriate or unsafe text detected." });
     }
-  } catch {
+
+    res.json({ success: true });
+  } catch (err) {
     res.json({ success: false, error: "Server error." });
   }
 });
