@@ -18,15 +18,18 @@ app.post("/api/validate-prompt", async (req, res) => {
 
     const result = response.results[0];
 
-    // If flagged in any category, block it
-    if (result.flagged) {
-      return res.json({ success: false, error: "Inappropriate or unsafe text detected." });
+    const flaggedCategories = Object.entries(result.categories)
+      .filter(([_, value]) => value === true)
+      .map(([category]) => category);
+
+    if (flaggedCategories.length > 0) {
+      return res.json({ success: false, error: "Inappropriate content detected: " + flaggedCategories.join(", ") });
     }
 
     res.json({ success: true });
-  } catch (err) {
+  } catch {
     res.json({ success: false, error: "Server error." });
   }
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(process.env.PORT || 3000);
