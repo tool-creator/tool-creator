@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           if (data.success) {
             localStorage.setItem('prompt', value);
-            window.location.href = 'create.html';
+            window.location.href = 'create';
           } else {
             alert(data.error || 'An error occurred while validating the prompt.');
           }
