@@ -1,35 +1,33 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import OpenAI from 'openai';
+import express from "express";
+import bodyParser from "body-parser";
+import OpenAI from "openai";
 
 const app = express();
 app.use(bodyParser.json());
 
 const openai = new OpenAI({
-  apiKey: process.env.MODERATION_API, // Store your key in an environment variable
+  apiKey: process.env.MODERATION_API,
 });
 
-app.post('/api/validate-prompt', async (req, res) => {
+app.post("/api/validate-prompt", async (req, res) => {
   try {
     const { prompt } = req.body;
 
-    // Call OpenAI's Moderation API
     const response = await openai.moderations.create({
       model: "omni-moderation-latest",
-      input: prompt
+      input: prompt,
     });
 
     const result = response.results[0];
 
     if (result.flagged) {
-      res.json({ success: false, error: 'Prompt violates moderation rules.' });
+      res.json({ success: false, error: "Inappropriate or unsafe text detected." });
     } else {
       res.json({ success: true });
     }
-  } catch (error) {
-    console.error(error);
-    res.json({ success: false, error: 'Server error.' });
+  } catch {
+    res.json({ success: false, error: "Server error." });
   }
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(3000, () => console.log("Server running on port 3000"));
