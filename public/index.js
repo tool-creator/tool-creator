@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!value) return;
 
       try {
-        const res = await fetch('/api/validate-prompt', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: value }),
-        });
+        const res = await fetch(`${window.location.origin}/api/validate-prompt`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ prompt: value }),
+});
 
         const data = await res.json();
 
