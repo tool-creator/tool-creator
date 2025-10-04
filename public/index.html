@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-GW30EV261B');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GW30EV261B');
+  </script>
+  
   <meta charset="utf-8"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -24,19 +24,54 @@
 
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
+  
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
     }
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Poppins', sans-serif;
     }
+
+    .about {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      padding: 100px 5vw;
+      text-align: center;
+    }
+    .about.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body> 
   <script src="index.js"></script>
+
   <h1 style="font-size: 60px; width: 60vw">Create Anything That You Can <span class="css-arch-underline">Imagine</span>.</h1>
   <h2 style="font-size: 25px">Build your tool with the power of AI.</h2>
   <textarea class="main-text-area" placeholder="Enter Your Imagination..."></textarea>
+
+  <section class="about" id="about">
+    <h1>About Us</h1>
+    <h2>Description here peter.</h2>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const about = document.getElementById('about');
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        about.classList.add('visible');
+      } else {
+        about.classList.remove('visible');
+      }
+    });
+  </script>
 </body>
 </html>
