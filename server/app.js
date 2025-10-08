@@ -4,6 +4,13 @@ const path = require('path')
 const isUnsafe = require('./promptFilter');
 const app = express();
 const PORT = 3000;
+const path = require('path')
+const fs = require('fs')
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, '../sitemap.xml'); // go up one level
+  res.setHeader('Content-Type', 'application/xml');
+  fs.createReadStream(sitemapPath).pipe(res);
+});
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.post('/api/validate-prompt', (req, res) => {
