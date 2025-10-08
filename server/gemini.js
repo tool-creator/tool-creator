@@ -9,9 +9,9 @@ async function callGemini(prompt) {
     const response = await axios.post(url, body, {
       headers: { 'Content-Type': 'application/json' }
     });
-    const textResponce = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    return textResponce || 'no response text found';
-  } catch {
+    const textResponse = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    return textResponse || 'no response text found';
+  } catch (error) {
     console.error('gemini api error:', error.response?.data || error.message);
     throw new Error('Failed to fetch from Gemini API');
   }
