@@ -1844,6 +1844,13 @@ const unsafePhrases = [
 ]
 
 function isUnsafe(prompt) {
-    return unsafePhrases.some((phrase) => prompt.toLowerCase().includes(phrase))
+    const cleanedPrompt = prompt.toLowerCase()
+    return unsafePhrases.some((phrase) => {
+      const spacer = '[\\s\u200B\u200C\u200D\u200E\u200F\u2060]*'
+      const loosePhrase = phrase.split('').map(ch => `${ch}${spacer}`).join('');
+      const pattern = `${}\\b${}\\b${}`;
+      const regex = new RegExp(pattern, 'i');
+      return regex.test(cleanedPrompt)
+    })
 }
 module.exports = isUnsafe;
