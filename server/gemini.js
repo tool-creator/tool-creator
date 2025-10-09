@@ -21,11 +21,11 @@ Existing Code:
 ${existingCode}
 `;
 }
-async function callGemini(prompt) {
+async function callGemini(userPrompt, existingCode = '') {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`
-  const prompt = buildPrompt(userPrompt, existingCode);
+  const fullPrompt = buildPrompt(userPrompt, existingCode);
   const body = {
-    contents: [{ parts: [{text: prompt}]}]
+    contents: [{ parts: [{text: fullPrompt}]}]
   }
   try {
     const response = await axios.post(url, body, {
