@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 const fs = require('fs')
 app.get('/sitemap.xml', (req, res) => {
-  const sitemapPath = path.join(__dirname, '../sitemap.xml'); // go up one level
+  const sitemapPath = path.join(__dirname, '../sitemap.xml');
   res.setHeader('Content-Type', 'application/xml');
   fs.createReadStream(sitemapPath).pipe(res);
 });
