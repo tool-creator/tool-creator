@@ -22,7 +22,7 @@ ${existingCode}
 `;
 }
 async function callGemini(userPrompt, existingCode = '') {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`
+const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=${GEMINI_API_KEY}`;
   const fullPrompt = buildPrompt(userPrompt, existingCode);
   const body = {
     contents: [{ parts: [{text: fullPrompt}]}]
