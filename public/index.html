@@ -78,6 +78,7 @@
       border: none;
       border-radius: 10px;
       box-shadow: 0 0 20px #00f, 0 0 40px #00f33a inset;
+      background: #000;
     }
 
     .about-text {
@@ -118,6 +119,15 @@
         font-size: 16px;
       }
     }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .about {
+        transition: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -126,7 +136,7 @@
   <textarea class="main-text-area" placeholder="Enter Your Imagination..."></textarea>
 
   <section class="about" id="about">
-    <iframe src="video.html" title="Tool AI Video"></iframe>
+    <iframe data-src="video.html" title="Tool AI Video" loading="lazy" aria-label="Tool AI video"></iframe>
     <div class="about-text">
       <h1>About Us</h1>
       <h4>
@@ -145,16 +155,36 @@
   </section>
 
   <script>
-    const aboutSection = document.getElementById('about');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          aboutSection.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+    (function () {
+      const aboutSection = document.getElementById('about');
+      const iframe = aboutSection.querySelector('iframe');
 
-    observer.observe(aboutSection);
+      if (!('IntersectionObserver' in window)) {
+        // Fallback: immediately show and load iframe if observer not supported
+        aboutSection.classList.add('visible');
+        if (iframe && iframe.dataset && iframe.dataset.src) {
+          iframe.src = iframe.dataset.src;
+        }
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            aboutSection.classList.add('visible');
+
+            if (iframe && iframe.dataset && iframe.dataset.src && !iframe.src) {
+              iframe.src = iframe.dataset.src;
+            }
+
+            // Only run once
+            obs.unobserve(aboutSection);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+
+      observer.observe(aboutSection);
+    })();
   </script>
 </body>
 </html>
