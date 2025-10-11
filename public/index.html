@@ -26,45 +26,30 @@
   <link rel="icon" type="image/x-icon" href="https://toolai.sirv.com/favicon.ico">
 
   <style>
+    /* Keep your original body styling */
     body {
+      background-color: black;
+      color: white;
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      background: #111;
-      color: #eee;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
-      margin: 0 0 20px 0;
-    }
-
-    textarea.main-text-area {
-      display: block;
-      width: 80%;
-      height: 150px;
-      margin: 30px auto;
-      font-size: 18px;
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #444;
-      resize: none;
-      outline: none;
-      background: #222;
-      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .about {
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(80px);
       transition: opacity 1s ease, transform 1s ease;
-      padding: 100px 5vw;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5vw;
       flex-wrap: wrap;
+      gap: 4vw;
+      width: 100%;
+      padding: 120px 5vw;
     }
 
     .about.visible {
@@ -76,31 +61,34 @@
       width: 45%;
       height: 350px;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #00f, 0 0 40px #00f33a inset;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00f, 0 0 50px #00f33a inset;
       background: #000;
     }
 
     .about-text {
       width: 45%;
-      text-align: left;
-      background: #111;
-      padding: 30px;
+      background: rgba(0,0,0,0.85);
+      padding: 35px;
       border-radius: 15px;
       border: 2px solid #0ff;
       box-shadow: 0 0 30px #0ff, 0 0 50px #0ff inset;
+      text-align: left;
       line-height: 1.6;
+      color: #eee;
     }
 
     .about-text h1 {
-      font-size: 28px;
       color: #0ff;
+      text-align: left;
+      text-shadow: 0 0 10px #0ff;
+      font-size: clamp(2rem, 3vw, 2.5rem);
       margin-bottom: 15px;
     }
 
     .about-text h4 {
-      font-size: 18px;
-      color: #eee;
+      color: white;
+      font-size: 1.2rem;
     }
 
     @media (max-width: 800px) {
@@ -112,31 +100,23 @@
         width: 90%;
         text-align: center;
       }
-      .about-text h1 {
-        font-size: 24px;
-      }
-      .about-text h4 {
-        font-size: 16px;
-      }
     }
 
-    /* Respect reduced motion preference */
-    @media (prefers-reduced-motion: reduce) {
-      .about {
-        transition: none;
-        transform: none;
-        opacity: 1;
-      }
+    .spacer {
+      height: 100px;
     }
   </style>
 </head>
 <body>
-  <h1 style="font-size: 60px; width: 60vw; margin-left: 5vw;">Create Anything That You Can <span class="css-arch-underline">Imagine</span>.</h1>
-  <h2 style="font-size: 25px; margin-left: 5vw;">Build your tool with the power of AI.</h2>
+  <h1>Create Anything That You Can <span class="css-arch-underline">Imagine</span>.</h1>
+  <h2>Build your tool with the power of AI.</h2>
+
   <textarea class="main-text-area" placeholder="Enter Your Imagination..."></textarea>
 
+  <div class="spacer"></div>
+
   <section class="about" id="about">
-    <iframe data-src="video.html" title="Tool AI Video" loading="lazy" aria-label="Tool AI video"></iframe>
+    <iframe data-src="video.html" title="Tool AI Video" loading="lazy"></iframe>
     <div class="about-text">
       <h1>About Us</h1>
       <h4>
@@ -159,29 +139,15 @@
       const aboutSection = document.getElementById('about');
       const iframe = aboutSection.querySelector('iframe');
 
-      if (!('IntersectionObserver' in window)) {
-        // Fallback: immediately show and load iframe if observer not supported
-        aboutSection.classList.add('visible');
-        if (iframe && iframe.dataset && iframe.dataset.src) {
-          iframe.src = iframe.dataset.src;
-        }
-        return;
-      }
-
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             aboutSection.classList.add('visible');
-
-            if (iframe && iframe.dataset && iframe.dataset.src && !iframe.src) {
-              iframe.src = iframe.dataset.src;
-            }
-
-            // Only run once
+            if (iframe.dataset.src && !iframe.src) iframe.src = iframe.dataset.src;
             obs.unobserve(aboutSection);
           }
         });
-      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+      }, { threshold: 0.2 });
 
       observer.observe(aboutSection);
     })();
