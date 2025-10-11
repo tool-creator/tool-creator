@@ -29,24 +29,51 @@
     <meta name="googlebot" content="index, follow" />
     <style>
       body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
       }
       h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
+
       .about {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-      padding: 100px 5vw;
-      text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+        padding: 100px 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5vw;
       }
       .about.visible {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .about iframe {
+        width: 45%;
+        height: 350px;
+        border: none;
+        border-radius: 8px;
+      }
+
+      .about-text {
+        width: 45%;
+        text-align: left;
+      }
+
+      @media (max-width: 800px) {
+        .about {
+          flex-direction: column;
+        }
+        .about iframe,
+        .about-text {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -55,20 +82,37 @@
     <h1 style="font-size: 60px; width: 60vw">Create Anything That You Can <span class="css-arch-underline">Imagine</span>.</h1>
     <h2 style="font-size: 25px">Build your tool with the power of AI.</h2>
     <textarea class="main-text-area" placeholder="Enter Your Imagination..."></textarea>
+
     <section class="about" id="about">
-      <h1>About Us</h1>
-      <h4>Need a peice of software but dont want to spend the money or time? Try Tool AI. Tool AI builds what you need, all you have to do is type what you desire and we make what you desire. Its that simple. Examples of what tool AI could be used for are: A homework tracker for my students. A calculator app that converts dollar into bitcoin. A data management app for all my employees. You say, we make.</h4>
+      <iframe src="video.html" title="Tool AI Video"></iframe>
+      <div class="about-text">
+        <h1>About Us</h1>
+        <h4>
+          Need a piece of software but don’t want to spend the money or time?
+          Try Tool AI. Tool AI builds what you need — all you have to do is type
+          what you desire and we make it for you. It’s that simple.
+          Examples of what Tool AI could be used for are:
+          A homework tracker for my students.
+          A calculator app that converts dollars into bitcoin.
+          A data management app for all my employees.
+          You say, we make.
+        </h4>
+      </div>
     </section>
+
     <script>
-      window.addEventListener('scroll', () => {
-        const about = document.getElementById('about');
-        const scrollY = window.scrollY;
-        if (scrollY > 100) {
-          about.classList.add('visible');
-        } else {
-          about.classList.remove('visible');
-        }
-      });
+      const aboutSection = document.getElementById('about');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            aboutSection.classList.add('visible');
+          } else {
+            aboutSection.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(aboutSection);
     </script>
   </body>
 </html>
