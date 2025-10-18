@@ -35,6 +35,20 @@ body {
   width: 100vw;
   flex-direction: column;
 }
+ul {
+  margin-left: 20px;
+  list-style-type: none;
+}
+ol {
+  margin-left: 20px;
+}
+li {
+  line-height: 1.5
+}
+li::marker {
+  content: "★"
+  color: gold;
+}
 /*Do not reuse .main-text-area unless you are okay with the associated javascript.*/
 .main-text-area {
   width: 70%;
