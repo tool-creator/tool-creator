@@ -46,7 +46,7 @@ li {
   line-height: 1.5
 }
 li::marker {
-  content: "★"
+  content: "★";
   color: gold;
 }
 /*Do not reuse .main-text-area unless you are okay with the associated javascript.*/
