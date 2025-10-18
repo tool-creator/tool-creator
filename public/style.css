@@ -44,9 +44,12 @@ ol {
 li {
   line-height: 1.5
 }
-li::marker {
+li::before {
   content: "★";
   color: gold;
+  position: absolute;
+  left: 0;
+  font-size: 1.1em;
 }
 /*Do not reuse .main-text-area unless you are okay with the associated javascript.*/
 .main-text-area {
