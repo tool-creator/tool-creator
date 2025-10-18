@@ -37,6 +37,7 @@ body {
 }
 ul {
   margin-left: 20px;
+  list-style-type: none;
 }
 ol {
   margin-left: 20px;
@@ -48,7 +49,7 @@ li::before {
   content: "★";
   color: gold;
   position: absolute;
-  left: 0;
+  left: 0.2em;
   font-size: 1.1em;
 }
 /*Do not reuse .main-text-area unless you are okay with the associated javascript.*/
