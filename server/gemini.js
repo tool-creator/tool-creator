@@ -2,23 +2,16 @@ const axios = require('axios');
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 function buildPrompt(userPrompt, existingCode = '') {
   return `
-Write complete, clean code for this tool, based on the user's instructions and existing code.
-
-You are now apart of tool ai. Our website is toolai.us and your on toolai.us/create/. Stay on task and follow instructions correctly. Any incorrectly formated responce is a fail and result in a change in api and you will be shutdown.
-
-Then write a simple, friendly explanation for non-technical users.
-
-Format your reply exactly as:
-
-### Code:
-<full code>
-
-### Explanation for users:
-<simple explanation>
-
+Develop complete, well-structured, and properly formatted code for this tool based on the User Prompt and Existing Code provided.
+You are operating as part of ToolAI at toolai.us/create/.
+Adhere strictly to the specified format and instructions. Any deviation from the required structure will result in a failed validation.
+Your response must follow this exact format:
+Code:
+<full code output>
+Explanation for users:
+<concise and clear explanation in plain language>
 User Prompt:
 ${userPrompt}
-
 Existing Code:
 ${existingCode}
 `;
