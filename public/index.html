@@ -1,155 +1,190 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GW30EV261B', {
-      anonymize_ip: true,
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false,
-      client_storage: 'none'
-    });
-  </script>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-GW30EV261B', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        client_storage: 'none',
+      });
+    </script>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="fonts.googleapis.com">
-  <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
-  <title>Tool AI - Build the web with the power of AI.</title>
-  <link rel="icon" type="image/x-icon" href="https://toolai.sirv.com/favicon.ico">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="fonts.googleapis.com" />
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Tool AI - Build the web with the power of AI.</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://toolai.sirv.com/favicon.ico"
+    />
 
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .about {
-      opacity: 0;
-      transform: translateY(80px);
-      transition: opacity 1s ease, transform 1s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4vw;
-      width: 100vw;
-      padding: 120px 5vw;
-    }
-
-    .about.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .about iframe {
-      width: 45%;
-      height: 350px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 25px white, 0 0 50px white inset;
-      background: #000;
-    }
-
-    .about-text {
-      width: 45%;
-      background: rgba(0,0,0,0.85);
-      padding: 35px;
-      border-radius: 15px;
-      border: 2px solid white;
-      box-shadow: 0 0 30px white, 0 0 50px white inset;
-      text-align: left;
-      line-height: 1.6;
-      color: #eee;
-    }
-
-    .about-text h1 {
-      color: white;
-      text-align: center;
-      text-shadow: 0 0 10px white;
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      margin-bottom: 15px;
-    }
-
-    .about-text h4 {
-      color: white;
-      font-size: 1.2rem;
-    }
-
-    @media (max-width: 800px) {
-      .about {
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        display: flex;
         flex-direction: column;
+        align-items: center;
       }
-      .about iframe,
+
+      .about {
+        opacity: 0;
+        transform: translateY(80px);
+        transition:
+          opacity 1s ease,
+          transform 1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4vw;
+        width: 100vw;
+        padding: 120px 5vw;
+      }
+
+      .about.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .about iframe {
+        width: 45%;
+        height: 350px;
+        border: none;
+        border-radius: 12px;
+        box-shadow:
+          0 0 25px white,
+          0 0 50px white inset;
+        background: #000;
+      }
+
       .about-text {
-        width: 90%;
-        text-align: center;
+        width: 45%;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 35px;
+        border-radius: 15px;
+        border: 2px solid white;
+        box-shadow:
+          0 0 30px white,
+          0 0 50px white inset;
+        text-align: left;
+        line-height: 1.6;
+        color: #eee;
       }
-    }
 
-    .spacer {
-      height: 150px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Create Anything That You Can <span class="css-arch-underline">Imagine</span>.</h1>
-  <h2>Build your tool with the power of AI.</h2>
-  <textarea class="main-text-area" placeholder="Enter Your Imagination..."></textarea>
-  <div class="spacer"></div>
-  <section class="about" id="about">
-    <iframe data-src="video.html" title="Tool AI Video" loading="lazy"></iframe>
-    <div class="about-text">
-      <h1>About Us</h1>
-      <h4>
-        Need software? Just say the word.<br>
-        Tool AI builds it — instantly.<br>
-        No coding. No hiring. No delays.<br>
-        With Tool AI, you describe what you need, and we turn it into real, working software — right before your eyes.<br>
-        <strong>You say, We make.</strong><br>
-        From custom apps to smart tools, Tool AI is your on-demand builder for anything digital.<br>
-        Examples? Easy:<br>
-        <ul>
-          <li>A homework tracker for students.</li>
-          <li>A calculator that converts dollars to Bitcoin.</li>
-          <li>A tool to track groceries.</li>
-        </ul><br>
-        If you can describe it, Tool AI can build it.<br>
-        <Strong>Fast. Smart. Effortless.</Strong>
-      </h4>
-    </div>
-  </section>
-  <script>
-    (function () {
-      const aboutSection = document.getElementById('about');
-      const iframe = aboutSection.querySelector('iframe');
+      .about-text h1 {
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 10px white;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        margin-bottom: 15px;
+      }
 
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            aboutSection.classList.add('visible');
-            if (iframe.dataset.src && !iframe.src) iframe.src = iframe.dataset.src;
-            obs.unobserve(aboutSection);
-          }
-        });
-      }, { threshold: 0.2 });
+      .about-text h4 {
+        color: white;
+        font-size: 1.2rem;
+      }
 
-      observer.observe(aboutSection);
-    })();
-  </script>
-</body>
+      @media (max-width: 800px) {
+        .about {
+          flex-direction: column;
+        }
+        .about iframe,
+        .about-text {
+          width: 90%;
+          text-align: center;
+        }
+      }
+
+      .spacer {
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Create Anything That You Can
+      <span class="css-arch-underline">Imagine</span>.
+    </h1>
+    <h2>Build your tool with the power of AI.</h2>
+    <textarea
+      class="main-text-area"
+      placeholder="Enter Your Imagination..."
+    ></textarea>
+    <div class="spacer"></div>
+    <section class="about" id="about">
+      <iframe
+        data-src="video.html"
+        title="Tool AI Video"
+        loading="lazy"
+      ></iframe>
+      <div class="about-text">
+        <h1>About Us</h1>
+        <h4>
+          Need software? Just say the word.<br />
+          Tool AI builds it — instantly.<br />
+          No coding. No hiring. No delays.<br />
+          With Tool AI, you describe what you need, and we turn it into real,
+          working software — right before your eyes.<br />
+          <strong>You say, We make.</strong><br />
+          From custom apps to smart tools, Tool AI is your on-demand builder for
+          anything digital.<br />
+          Examples? Easy:<br />
+          <ul>
+            <li>A homework tracker for students.</li>
+            <li>A calculator that converts dollars to Bitcoin.</li>
+            <li>A tool to track groceries.</li>
+          </ul>
+          <br />
+          If you can describe it, Tool AI can build it.<br />
+          <strong>Fast. Smart. Effortless.</strong>
+        </h4>
+      </div>
+    </section>
+    <script>
+      (function () {
+        const aboutSection = document.getElementById('about');
+        const iframe = aboutSection.querySelector('iframe');
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                aboutSection.classList.add('visible');
+                if (iframe.dataset.src && !iframe.src)
+                  iframe.src = iframe.dataset.src;
+                obs.unobserve(aboutSection);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        observer.observe(aboutSection);
+      })();
+    </script>
+  </body>
 </html>

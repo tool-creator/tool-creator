@@ -1,45 +1,57 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-  gtag('config', 'G-GW30EV261B', {
-    anonymize_ip: true,
-    allow_google_signals: false,
-    allow_ad_personalization_signals: false,
-    client_storage: 'none'
-  });
-</script>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="fonts.googleapis.com">
-    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+      gtag('config', 'G-GW30EV261B', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        client_storage: 'none',
+      });
+    </script>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="fonts.googleapis.com" />
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
     <title>Tool AI - Creating your tool</title>
-    <link rel="icon" type="image/x-icon" href="https://toolai.sirv.com/favicon.ico">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://toolai.sirv.com/favicon.ico"
+    />
     <style>
       body {
-      font-family: 'Inter', sans-serif;
+        font-family: 'Inter', sans-serif;
       }
       h1 {
-      font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
       h2 {
-      font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
       h4 {
-      font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
       h5 {
-      font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
       h6 {
-      font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
       }
     </style>
   </head>
@@ -53,20 +65,62 @@
       </div>
     </div>
     <div style="width: 100vw; display: flex">
-      <div class="div-no-size" style="height: 90vh; width: 30vw; align-self: flex-start; display: flex; flex-direction: column; justify-content: space-around">
-        <div style="display: flex; flex: 0.95; justify-content: flex-end; flex-direction: column; overflow-Y: auto">
-          <div class="message-bubble-outgoing">This is where the converation goes.</div>
-          <div class="message-bubble-outgoing">A sent message looks like this.</div>
-          <div class="message-bubble-incoming">A message from the AI looks like this.</div>
-          <div class="message-bubble-incoming" style="background-color: #DF1E43; color: white">This is what an error looks like. The red background and text color is set with the inline style prop.</div>
+      <div
+        class="div-no-size"
+        style="
+          height: 90vh;
+          width: 30vw;
+          align-self: flex-start;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex: 0.95;
+            justify-content: flex-end;
+            flex-direction: column;
+            overflow-y: auto;
+          "
+        >
+          <div class="message-bubble-outgoing">
+            This is where the converation goes.
+          </div>
+          <div class="message-bubble-outgoing">
+            A sent message looks like this.
+          </div>
+          <div class="message-bubble-incoming">
+            A message from the AI looks like this.
+          </div>
+          <div
+            class="message-bubble-incoming"
+            style="background-color: #df1e43; color: white"
+          >
+            This is what an error looks like. The red background and text color
+            is set with the inline style prop.
+          </div>
         </div>
         <div class="messaging-text-area-container">
-          <textarea class="messaging-text-area" placeholder="Message AI..."></textarea>
+          <textarea
+            class="messaging-text-area"
+            placeholder="Message AI..."
+          ></textarea>
           <div class="messaging-text-area-submit"></div>
         </div>
       </div>
-      <div class="div-no-size" style="height: 90vh; width: 70vw; align-self: flex-end; flex-direction: column">
+      <div
+        class="div-no-size"
+        style="
+          height: 90vh;
+          width: 70vw;
+          align-self: flex-end;
+          flex-direction: column;
+        "
+      >
         <h5>This is where the generated output code from the AI goes.</h5>
       </div>
     </div>
   </body>
+</html>

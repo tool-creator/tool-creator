@@ -17,16 +17,17 @@ ${existingCode}
 `;
 }
 async function callGemini(userPrompt, existingCode = '') {
-const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`;
   const fullPrompt = buildPrompt(userPrompt, existingCode);
   const body = {
-    contents: [{ parts: [{text: fullPrompt}]}]
-  }
+    contents: [{ parts: [{ text: fullPrompt }] }],
+  };
   try {
     const response = await axios.post(url, body, {
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     });
-    const textResponse = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const textResponse =
+      response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
     return textResponse || 'no response text found';
   } catch (error) {
     console.error('gemini api error:', error.response?.data || error.message);

@@ -1,16 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="preconnect" href="fonts.googleapis.com">
-    <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="fonts.googleapis.com" />
+    <link rel="preconnect" href="fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
     <title>Privacy Policy - ToolAI</title>
     <style>
-      h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Poppins', sans-serif;
       }
       .privacy-container {
         background-color: black;
@@ -21,12 +29,12 @@
         margin: 40px auto;
         line-height: 1.6;
       }
-  
+
       .privacy-container a {
         color: #00ffff;
         text-decoration: underline;
       }
-  
+
       .privacy-container button {
         margin-top: 10px;
         background-color: #01655c;
@@ -37,19 +45,19 @@
         cursor: pointer;
         font-size: 1rem;
       }
-  
+
       .privacy-container button:hover {
         background-color: #019e91;
       }
-  
+
       ul {
         padding-left: 20px;
       }
-  
+
       li {
         margin-bottom: 0.5em;
       }
-  
+
       .message {
         margin-top: 10px;
         color: #00cc66;
@@ -59,18 +67,15 @@
   <body>
     <h1>Privacy at ToolAI</h1>
     <div class="privacy-container">
-      <p><strong>ToolAI</strong> uses Google Analytics to improve our site — and nothing more.</p>
-      <h2>
-        Data we Collect (Hint: No Personal Info)
-      </h2>
+      <p>
+        <strong>ToolAI</strong> uses Google Analytics to improve our site — and
+        nothing more.
+      </p>
+      <h2>Data we Collect (Hint: No Personal Info)</h2>
       <ul>
-        <li>
-          How many people visit our website
-        </li>
+        <li>How many people visit our website</li>
       </ul>
-      <h2>
-        Data we don't Collect (Pretty Much Everything Else)
-      </h2>
+      <h2>Data we don't Collect (Pretty Much Everything Else)</h2>
       <ul>
         <li>No names or email addresses</li>
         <li>No ads or tracking IDs</li>
@@ -78,17 +83,15 @@
         <li>No IP addresses (they’re anonymized)</li>
         <li>No browser or device details used</li>
       </ul>
-      <h2>
-        How We Protect Your Data
-      </h2>
+      <h2>How We Protect Your Data</h2>
       <p>
-        We’ve disabled all personalized tracking in Google Analytics. Your visit is counted anonymously — that’s it.
+        We’ve disabled all personalized tracking in Google Analytics. Your visit
+        is counted anonymously — that’s it.
       </p>
-      <h2>
-        Opting Out
-      </h2>
+      <h2>Opting Out</h2>
       <p>
-        If you want to opt out, that's totally fine. At ToolAI, we give you full control of your privacy — the way it should be.
+        If you want to opt out, that's totally fine. At ToolAI, we give you full
+        control of your privacy — the way it should be.
       </p>
       <button onclick="disableAnalytics()">Opt Out</button>
       <p id="output-message" class="message"></p>
@@ -96,7 +99,8 @@
         function disableAnalytics() {
           localStorage.setItem('ga-disable', 'true');
           window['ga-disable-G-GW30EV261B'] = true;
-          document.querySelector('#output-message').textContent = "You've opted out. We won't track anything.";
+          document.querySelector('#output-message').textContent =
+            "You've opted out. We won't track anything.";
         }
         if (localStorage.getItem('ga-disable') === 'true') {
           window['ga-disable-G-GW30EV261B'] = true;
@@ -104,7 +108,12 @@
       </script>
       <p style="margin-top: 20px">
         More About Google's Data Use:
-        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Learn more</a>
+        <a
+          href="https://policies.google.com/technologies/partner-sites"
+          target="_blank"
+          rel="noopener"
+          >Learn more</a
+        >
       </p>
     </div>
   </body>

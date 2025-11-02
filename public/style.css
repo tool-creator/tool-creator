@@ -1,7 +1,12 @@
 * {
   box-sizing: border-box;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: white;
   line-height: 1.2;
   text-align: center;
@@ -49,7 +54,7 @@ li {
   gap: 0.5em;
 }
 li::before {
-  content: "★";
+  content: '★';
   color: gold;
   font-size: 1.2em;
   line-height: 1;
@@ -72,7 +77,9 @@ li::before {
   margin: 30px auto;
   font-family: Inter, sans-serif;
   height: calc(3em + 10px);
-  transition: width 0.5s, height 0.5s;/*Connor, I added this line so the width can expand mmore smoothly*/
+  transition:
+    width 0.5s,
+    height 0.5s; /*Connor, I added this line so the width can expand mmore smoothly*/
 }
 .main-text-area:focus {
   border: 3px solid #01655c;
@@ -86,7 +93,7 @@ li::before {
 .div-no-size {
   border: 1px solid gray;
   height: 0;
-  width: 0; 
+  width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,7 +113,7 @@ li::before {
   border-color: white;
   padding: 0 3px;
   color: black;
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   font-size: 1rem;
   resize: none;
   outline: none;
@@ -129,7 +136,7 @@ messaging-text-area::placeholder {
   color: #404040;
   overflow-wrap: break-word;
   margin: 0 2% 5% 0;
-  background-color: #D0EFFF;
+  background-color: #d0efff;
   font-size: 1rem;
   min-height: 1rem;
   border-radius: 10px 10px 0 10px;
@@ -143,7 +150,7 @@ messaging-text-area::placeholder {
   color: #404040;
   overflow-wrap: break-word;
   margin: 0 0 5% 2%;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   font-size: 1rem;
   min-height: 1rem;
   border-radius: 10px 10px 10px 0;

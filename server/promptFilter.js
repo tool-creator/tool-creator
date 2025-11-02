@@ -254,7 +254,7 @@ const unsafePhrases = [
   'chav',
   'cherrypopper',
   'chickslick',
-  'children\'s',
+  "children's",
   'chin',
   'chinaman',
   'chinamen',
@@ -698,7 +698,7 @@ const unsafePhrases = [
   'inthebuff',
   'israel',
   'israeli',
-  'israel\'s',
+  "israel's",
   'italiano',
   'itch',
   'jackass',
@@ -901,7 +901,7 @@ const unsafePhrases = [
   'negro',
   'negroes',
   'negroid',
-  'negro\'s',
+  "negro's",
   'nig',
   'niger',
   'nigerian',
@@ -914,16 +914,16 @@ const unsafePhrases = [
   'niggarded',
   'niggarding',
   'niggardliness',
-  'niggardliness\'s',
+  "niggardliness's",
   'niggardly',
   'niggards',
-  'niggard\'s',
+  "niggard's",
   'niggaz',
   'nigger',
   'niggerhead',
   'niggerhole',
   'niggers',
-  'nigger\'s',
+  "nigger's",
   'niggle',
   'niggled',
   'niggles',
@@ -1245,7 +1245,7 @@ const unsafePhrases = [
   'sniggered',
   'sniggering',
   'sniggers',
-  'snigger\'s',
+  "snigger's",
   'sniper',
   'snot',
   'snowback',
@@ -1427,7 +1427,7 @@ const unsafePhrases = [
   'willy',
   'wn',
   'wog',
-  'women\'s',
+  "women's",
   'wop',
   'wtf',
   'wuss',
@@ -1840,17 +1840,20 @@ const unsafePhrases = [
   'yellow showers',
   'yiffy',
   'zoophilia',
-  '🖕'
-]
+  '🖕',
+];
 
 function isUnsafe(prompt) {
-    const cleanedPrompt = prompt.toLowerCase()
-    return unsafePhrases.some((phrase) => {
-      const spacer = '[\\s\u200B\u200C\u200D\u200E\u200F\u2060]*'
-      const loosePhrase = phrase.split('').map(ch => `${ch}${spacer}`).join('');
-      const pattern = `${spacer}\\b${loosePhrase}\\b${spacer}`;
-      const regex = new RegExp(pattern, 'i');
-      return regex.test(cleanedPrompt)
-    })
+  const cleanedPrompt = prompt.toLowerCase();
+  return unsafePhrases.some((phrase) => {
+    const spacer = '[\\s\u200B\u200C\u200D\u200E\u200F\u2060]*';
+    const loosePhrase = phrase
+      .split('')
+      .map((ch) => `${ch}${spacer}`)
+      .join('');
+    const pattern = `${spacer}\\b${loosePhrase}\\b${spacer}`;
+    const regex = new RegExp(pattern, 'i');
+    return regex.test(cleanedPrompt);
+  });
 }
 module.exports = isUnsafe;

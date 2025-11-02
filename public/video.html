@@ -1,43 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Base64 Video Viewer</title>
-<style>
-  body {
-    margin: 0;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  video {
-    max-width: 100%;
-    max-height: 100%;
-  }
-</style>
-</head>
-<body>
-<video id="video" autoplay muted loop playsinline></video>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base64 Video Viewer</title>
+    <style>
+      body {
+        margin: 0;
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      video {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="video" autoplay muted loop playsinline></video>
 
-<script>
-fetch('/about.txt')
-  .then(response => {
-    if (!response.ok) throw new Error('Failed to load /about.txt');
-    return response.text();
-  })
-  .then(base64Data => {
-    // Clean possible whitespace/newlines
-    base64Data = base64Data.trim();
-    const video = document.getElementById('video');
-    video.src = 'data:video/mp4;base64,' + base64Data;
-  })
-  .catch(err => {
-    console.error(err);
-    document.body.innerHTML = '<p style="color:white">Error loading video.</p>';
-  });
-</script>
-</body>
+    <script>
+      fetch('/about.txt')
+        .then((response) => {
+          if (!response.ok) throw new Error('Failed to load /about.txt');
+          return response.text();
+        })
+        .then((base64Data) => {
+          // Clean possible whitespace/newlines
+          base64Data = base64Data.trim();
+          const video = document.getElementById('video');
+          video.src = 'data:video/mp4;base64,' + base64Data;
+        })
+        .catch((err) => {
+          console.error(err);
+          document.body.innerHTML =
+            '<p style="color:white">Error loading video.</p>';
+        });
+    </script>
+  </body>
 </html>
