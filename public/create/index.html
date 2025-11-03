@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-GW30EV261B"
@@ -38,18 +37,11 @@
       body {
         font-family: 'Inter', sans-serif;
       }
-      h1 {
-        font-family: 'Poppins', sans-serif;
-      }
-      h2 {
-        font-family: 'Poppins', sans-serif;
-      }
-      h4 {
-        font-family: 'Poppins', sans-serif;
-      }
-      h5 {
-        font-family: 'Poppins', sans-serif;
-      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
       h6 {
         font-family: 'Poppins', sans-serif;
       }
@@ -111,6 +103,7 @@
         </div>
       </div>
       <div
+        id="code-runner"
         class="div-no-size"
         style="
           height: 90vh;
@@ -121,6 +114,11 @@
       >
         <h5>This is where the generated output code from the AI goes.</h5>
       </div>
+      <iframe>
+        id="ai-code-previewer" sandbox="allow-sripts allow-modals allow-forms"
+        srcdoc="" style="width: 70vw; height: 90vh; border: none; background:
+        white"
+      </iframe>
     </div>
   </body>
 </html>

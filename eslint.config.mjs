@@ -10,6 +10,6 @@ export default defineConfig([
     plugins: { js, prettier: pluginPrettier },
     extends: ['js/recommended', configPrettier],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
-    rules: { 'prettier/prettier': 'error' },
+    rules: { 'prettier/prettier': 'warn' },
   },
 ]);

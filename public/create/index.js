@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(
           "Connor, this should have worked. Next, I'll parse the responce from the AI and run the output."
         );
+        const generatedCode = prompt.match(
+          /(?<=Code:\s*)(.*?)(?=Explanation for users)/s
+        );
+        const explanation = prompt.match(/(?<=Explanation for users:\s*)(.*)/s);
+        if (explanation && generatedCode) {
+          const iframe = document.getElementById('ai-code-previewer');
+          iframe.srcdoc = generatedCode[0];
+        }
       } else {
         alert(data.error || 'An error occurred while validating the prompt.');
         window.location.href = '../index.html';

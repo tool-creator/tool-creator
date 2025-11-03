@@ -26,7 +26,7 @@ app.post('/api/validate-prompt', async (req, res) => {
     const geminiResponse = await callGemini(prompt);
     return res.json({ success: true, response: geminiResponse });
   } catch (error) {
-    console.error('Eror calling Gemini API:', error);
+    console.error('Error calling Gemini API:', error);
     return res
       .status(500)
       .json({ error: 'Failed to generate response from Gemini' });
