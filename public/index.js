@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ) {
       e.preventDefault();
       window.location.href = 'create';
+      localStorage.setItem('prompt', textarea.value);
     }
   });
 });

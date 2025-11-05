@@ -29,7 +29,6 @@
           return response.text();
         })
         .then((base64Data) => {
-          // Clean possible whitespace/newlines
           base64Data = base64Data.trim();
           const video = document.getElementById('video');
           video.src = 'data:video/mp4;base64,' + base64Data;
