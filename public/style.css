@@ -119,7 +119,7 @@ li::before {
   outline: none;
   font-family: inter, sans-serif;
 }
-messaging-text-area::placeholder {
+.messaging-text-area::placeholder {
   color: #222;
   opacity: 1;
 }

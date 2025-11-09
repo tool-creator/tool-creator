@@ -1,7 +1,14 @@
-const callGemini = require('./gemini');
-require('dotenv').config();
-const express = require('express');
 const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+console.log(
+  'Gemini key loaded?',
+  !!process.env.GEMINI_API_KEY,
+  process.env.GEMINI_API_KEY
+);
+const callGemini = require('./gemini');
+const { sanitizeInput } = require('./sanitize');
+const htmlSanitize = sanitizeInput;
+const express = require('express');
 const isUnsafe = require('./promptFilter');
 const app = express();
 const PORT = 3000;
@@ -14,6 +21,7 @@ app.get('/sitemap.xml', (req, res) => {
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.post('/api/validate-prompt', async (req, res) => {
+  console.log('Route /api/validate-prompt hit');
   const prompt = req.body.prompt;
   console.log('Received prompt for validation:', prompt);
   if (!prompt || typeof prompt !== 'string') {
@@ -24,7 +32,22 @@ app.post('/api/validate-prompt', async (req, res) => {
   }
   try {
     const geminiResponse = await callGemini(prompt);
-    return res.json({ success: true, response: geminiResponse });
+    const generatedCode = geminiResponse.match(
+      /(?<=Code:\s*)(.*?)(?=Explanation for users)/s
+    );
+    const explanation = geminiResponse.match(
+      /(?<=Explanation for users:\s*)(.*)/s
+    );
+    if (!generatedCode || !explanation) {
+      return res.status(400).json({ error: 'Failed to parse AI response' });
+    }
+    const sanitizedHtml = htmlSanitize(generatedCode[0]);
+
+    return res.json({
+      success: true,
+      sanitizedHtml,
+      explanation: explanation[0],
+    });
   } catch (error) {
     console.error('Error calling Gemini API:', error);
     return res

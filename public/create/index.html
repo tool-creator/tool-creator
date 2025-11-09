@@ -19,6 +19,7 @@
         client_storage: 'none',
       });
     </script>
+    <script src="index.js"></script>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="preconnect" href="fonts.googleapis.com" />
@@ -102,11 +103,27 @@
           <div class="messaging-text-area-submit"></div>
         </div>
       </div>
-      <iframe>
-        id="ai-code-previewer" sandbox="allow-sripts allow-modals allow-forms"
-        srcdoc="" style="width: 70vw; height: 90vh; border: none; background:
-        white"
-      </iframe>
+      <div class="div-no-size" style="height: 90vh; width: 70vw">
+        <div
+          id="spinner"
+          style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            display: none;
+          "
+        >
+          <img src="/attributes/loading_spinner.gif" alt="Loading..." />
+        </div>
+        <iframe
+          id="ai-code-previewer"
+          sandbox="allow-sripts allow-modals allow-forms"
+          srcdoc=""
+          style="width: 100%; height: 100%; border: none; background: white"
+        ></iframe>
+      </div>
     </div>
   </body>
 </html>

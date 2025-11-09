@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('beforeunload', function () {
+    localStorage.removeItem('prompt');
+  });
   const prompt = localStorage.getItem('prompt');
   if (!prompt) {
     window.location.href = '../index.html';
     return;
+  }
+  const spinner = document.getElementById('spinner');
+  if (spinner) {
+    spinner.style.display = 'block';
   }
   fetch('/api/validate-prompt', {
     method: 'POST',
@@ -13,42 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
   })
     .then((res) => res.json())
     .then((data) => {
+      if (spinner) {
+        spinner.style.display = 'none';
+      }
       if (data.success) {
         console.log('prompt validated successfully');
-        alert(
-          "Connor, this should have worked. Next, I'll parse the response from the AI and run the output."
-        );
-        const response = data.response;
-        const generatedCode = response.match(
-          /(?<=Code:\s*)(.*?)(?=Explanation for users)/s
-        );
-        const explanation = response.match(
-          /(?<=Explanation for users:\s*)(.*)/s
-        );
-        if (!generatedCode || !explanation) {
-          alert('Failed to parse AI response. Redirecting to home page.');
+        const iframe = document.getElementById('ai-code-previewer');
+        if (iframe) {
+          iframe.srcdoc = data.sanitizedHtml
+            .replace(/```html/g, '')
+            .replace(/```/g, '');
+        } else {
+          console.warn('Iframe not found - please check the ID');
+          alert('Iframe not found - please check the ID');
           window.location.href = '../index.html';
           return;
         }
-        const iframe = document.getElementById('ai-code-previewer');
-        if (explanation && generatedCode) {
-          if (iframe) {
-            iframe.srcdoc = generatedCode[0];
-          } else {
-            console.warn('Iframe not found - please check the ID');
-            alert('Iframe not found - please check the ID');
-            window.location.href = '../index.html';
-            return;
-          }
-        }
-      } else {
-        alert(data.error || 'An error occurred while validating the prompt.');
-        console.warn('Prompt validation failed:', data.error);
-        window.location.href = '../index.html';
-        return;
       }
     })
     .catch((error) => {
+      if (spinner) {
+        spinner.style.display = 'none';
+      }
       console.error('Error:', error);
       alert('An error occurred while validating the prompt.');
       window.location.href = '../index.html';
