@@ -122,6 +122,23 @@
       .spacer {
         height: 150px;
       }
+      .learn-more-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background: #ddd;
+  transform: translateY(-2px);
+}
     </style>
   </head>
   <body>
@@ -144,6 +161,9 @@
         title="Tool AI Video"
         loading="lazy"
       ></iframe>
+      <button class="learn-more-btn" onclick="window.location.href='/about'">
+  Learn More About Us
+</button>
       <div class="about-text">
         <h1>About Us</h1>
         <h4>
