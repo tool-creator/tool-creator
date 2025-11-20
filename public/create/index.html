@@ -64,43 +64,28 @@
           height: 90vh;
           width: 30vw;
           align-self: flex-start;
-          display: flex;
           flex-direction: column;
           justify-content: space-around;
         "
       >
         <div
+          id="messaging-container"
           style="
             display: flex;
-            flex: 0.95;
+            height: 85%;
+            width: 100%;
             justify-content: flex-end;
             flex-direction: column;
             overflow-y: auto;
           "
-        >
-          <div class="message-bubble-outgoing">
-            This is where the converation goes.
-          </div>
-          <div class="message-bubble-outgoing">
-            A sent message looks like this.
-          </div>
-          <div class="message-bubble-incoming">
-            A message from the AI looks like this.
-          </div>
-          <div
-            class="message-bubble-incoming"
-            style="background-color: #df1e43; color: white"
-          >
-            This is what an error looks like. The red background and text color
-            is set with the inline style prop.
-          </div>
-        </div>
+        ></div>
         <div class="messaging-text-area-container">
           <textarea
             class="messaging-text-area"
             placeholder="Message AI..."
+            id="messaging-text-area"
           ></textarea>
-          <div class="messaging-text-area-submit"></div>
+          <button class="messaging-text-area-submit"></button>
         </div>
       </div>
       <div class="div-no-size" style="height: 90vh; width: 70vw">
@@ -110,12 +95,12 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(50%, 50%);
             z-index: 999;
             display: none;
           "
         >
-          <img src="/attributes/loading_spinner.gif" alt="Loading..." />
+          <img src="../attributes/loading_spinner.gif" alt="Loading..." />
         </div>
         <iframe
           id="ai-code-previewer"

@@ -129,6 +129,12 @@ li::before {
   background-color: green;
   border-radius: 5px;
 }
+.messaging-text-area-submit:hover {
+  background-color: darkgreen;
+}
+.messaging-text-area-submit:active {
+  background-color: lightgreen;
+}
 .message-bubble-outgoing {
   padding: 5px;
   height: auto;
