@@ -68,43 +68,28 @@
           justify-content: space-around;
         "
       >
-        <div
-          id="messaging-container"
-          style="
-            display: flex;
-            height: 85%;
-            width: 100%;
-            justify-content: flex-end;
-            flex-direction: column;
-            overflow-y: auto;
-          "
-        ></div>
+        <div class="message-container" id="message-container">
+          <div style="display: flex; flex-grow: 1; height: 0"></div>
+        </div>
         <div class="messaging-text-area-container">
           <textarea
             class="messaging-text-area"
             placeholder="Message AI..."
             id="messaging-text-area"
           ></textarea>
-          <button class="messaging-text-area-submit"></button>
+          <button
+            class="messaging-text-area-submit"
+            id="messaging-text-area-submit"
+          ></button>
         </div>
       </div>
       <div class="div-no-size" style="height: 90vh; width: 70vw">
-        <div
-          id="spinner"
-          style="
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(50%, 50%);
-            z-index: 999;
-            display: none;
-          "
-        >
+        <div id="spinner" style="z-index: 1000; margin: auto; display: none">
           <img src="../attributes/loading_spinner.gif" alt="Loading..." />
         </div>
         <iframe
           id="ai-code-previewer"
-          sandbox="allow-sripts allow-modals allow-forms"
+          sandbox="allow-scripts allow-modals allow-forms"
           srcdoc=""
           style="width: 100%; height: 100%; border: none; background: white"
         ></iframe>

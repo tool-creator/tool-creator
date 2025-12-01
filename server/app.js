@@ -31,7 +31,8 @@ app.post('/api/validate-prompt', async (req, res) => {
     return res.status(400).json({ error: 'Prompt contains unsafe content' });
   }
   try {
-    const geminiResponse = await callGemini(prompt);
+    const existingCode = req.body.existingCode || '';
+    const geminiResponse = await callGemini(prompt, existingCode);
     const generatedCode = geminiResponse.match(
       /(?<=Code:\s*)(.*?)(?=Explanation for users)/s
     );
@@ -42,7 +43,6 @@ app.post('/api/validate-prompt', async (req, res) => {
       return res.status(400).json({ error: 'Failed to parse AI response' });
     }
     const sanitizedHtml = htmlSanitize(generatedCode[0]);
-
     return res.json({
       success: true,
       sanitizedHtml,
