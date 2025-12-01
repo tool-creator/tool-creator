@@ -7,7 +7,7 @@ Your response must follow this exact format:
 
 Code: <your HTML/CSS/JS code here>
 
-Explanation for users: A clear, brief, and very simple not code oriented explanation (1-3 sentnces) of what the tool does.
+Explanation for users: A clear, brief, and very simple not code oriented explanation (1-3 sentnces) of what the tool does (must be in plain text - no markdown).
 
 ⚠️ Important rules:
 - Do NOT use inline event handlers like onclick, onmouseover, etc.
