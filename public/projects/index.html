@@ -1,0 +1,149 @@
+/* Example Page */
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Your Projects</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: black;
+        color: white;
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 40px 5vw;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: clamp(2.2rem, 4vw, 3rem);
+        text-shadow: 0 0 15px white;
+        margin-bottom: 40px;
+      }
+
+      /* Grid: 4 squares per row on desktop */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+
+      /* Square card container */
+      .project-card {
+        position: relative;
+        width: 100%;
+        padding-top: 100%; /* Forces a perfect square */
+        background: rgba(0, 0, 0, 0.85);
+        border: 2px solid white;
+        border-radius: 14px;
+        box-shadow: 0 0 25px white inset;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow:
+          0 0 25px white,
+          0 0 45px white inset;
+      }
+
+      /* Content inside square */
+      .project-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+      }
+
+      .thumb {
+        width: 100%;
+        height: 60%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        border: 1px solid white;
+        box-shadow: 0 0 12px white inset;
+      }
+
+      .project-title {
+        font-size: 1.1rem;
+        margin: 10px 0 0 0;
+        font-weight: 600;
+        text-shadow: 0 0 10px white;
+      }
+
+      .project-desc {
+        font-size: 0.85rem;
+        color: #ddd;
+        flex-grow: 1;
+      }
+
+      .modified-date {
+        font-size: 0.75rem;
+        color: #bbb;
+        text-align: right;
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        .projects-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 800px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .projects-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Your Projects</h1>
+
+    <div class="projects-grid">
+
+      <!-- Example project square -->
+      <div class="project-card">
+        <div class="project-inner">
+          <div
+            class="thumb"
+            style="background-image: url('https://via.placeholder.com/600x600?text=Thumbnail');"
+          ></div>
+
+          <div class="project-title">Example Project</div>
+
+          <div class="project-desc">
+            A short description of the example project.
+          </div>
+
+          <div class="modified-date">
+            Last Modified: Jan 15, 2025
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
