@@ -129,6 +129,38 @@ li::before {
   background-color: green;
   border-radius: 5px;
 }
+.messaging-text-area-submit:hover {
+  background-color: darkgreen;
+}
+.messaging-text-area-submit:active {
+  background-color: lightgreen;
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-gutter: stable transparent;
+}
+.message-container::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+.message-container::-webkit-scrollbar-thumb {
+  width: 6px;
+  border-radius: 8px;
+  background: linear-gradient(
+    #bcdff86c,
+    #90caf96c,
+    #42a5f56c,
+    #1e88e56c,
+    #0d47a16c
+  );
+}
+.message-container:hover::-webkit-scrollbar-thumb {
+  background-color: red;
+}
 .message-bubble-outgoing {
   padding: 5px;
   height: auto;
@@ -138,10 +170,11 @@ li::before {
   margin: 0 2% 5% 0;
   background-color: #d0efff;
   font-size: 1rem;
-  min-height: 1rem;
+  min-height: 1.5rem;
   border-radius: 10px 10px 0 10px;
   font-family: inter, sans-serif;
   align-self: flex-end;
+  flex-shrink: 0;
 }
 .message-bubble-incoming {
   padding: 5px;
@@ -156,6 +189,7 @@ li::before {
   border-radius: 10px 10px 10px 0;
   font-family: inter, sans-serif;
   align-self: flex-start;
+  flex-shrink: 0;
 }
 .css-arch-underline {
   position: relative;

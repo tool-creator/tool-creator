@@ -7,7 +7,7 @@ Your response must follow this exact format:
 
 Code: <your HTML/CSS/JS code here>
 
-Explanation for users: A clear explanation of what the code does and how it works.
+Explanation for users: A clear, brief, and very simple not code oriented explanation (1-3 sentnces) of what the tool does (must be in plain text - no markdown).
 
 ⚠️ Important rules:
 - Do NOT use inline event handlers like onclick, onmouseover, etc.
@@ -20,7 +20,7 @@ Explanation for users: A clear explanation of what the code does and how it work
 
 Here is the user prompt:
 ${userPrompt}
-Here is any existing code to build upon if any exists:
+Here is any existing code to build upon (if any):
 ${existingCode}
 `;
 }
